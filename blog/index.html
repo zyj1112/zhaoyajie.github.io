@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog · Zhao Yajie</title>
+  <style>
+:root {
+  --text: #222222;
+  --muted: #666666;
+  --line: #dddddd;
+  --link: #1f5f9f;
+  --link-hover: #0f3f70;
+  --bg: #ffffff;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", "Noto Serif", "Noto Serif CJK SC", serif;
+  font-size: 17px;
+  line-height: 1.72;
+}
+.page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 36px 24px 72px;
+}
+a {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(31, 95, 159, 0.28);
+}
+a:hover {
+  color: var(--link-hover);
+  border-bottom-color: var(--link-hover);
+}
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  margin-bottom: 24px;
+  color: var(--muted);
+  font-size: 15px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+}
+nav a { border-bottom: none; }
+h1 {
+  margin: 0 0 8px;
+  font-size: 34px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+h2 {
+  margin: 28px 0 10px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+.subtitle, .meta {
+  color: var(--muted);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  font-size: 15px;
+}
+.post-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 18px;
+}
+.post-list li {
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+}
+.post-list li:first-child { border-top: none; }
+.post-title { font-weight: 600; }
+.lang-links {
+  margin-top: 6px;
+  font-size: 15px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+}
+article {
+  border-top: 1px solid var(--line);
+  margin-top: 24px;
+  padding-top: 20px;
+}
+.math-block {
+  overflow-x: auto;
+  margin: 14px 0;
+}
+footer {
+  border-top: 1px solid var(--line);
+  margin-top: 36px;
+  padding-top: 18px;
+  color: var(--muted);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  font-size: 14px;
+}
+@media (max-width: 560px) {
+  .page { padding: 26px 18px 56px; }
+  h1 { font-size: 29px; }
+}
+</style>
+</head>
+<body>
+  <main class="page">
+    <nav aria-label="Blog navigation">
+      <a href="../index.html">Home</a>
+      <a href="./index.html">Blog</a>
+    </nav>
+
+    <h1>Blog / Interesting Problems</h1>
+    <p class="subtitle">Short notes on mathematical problems, olympiad problems, and small observations.</p>
+
+    <ul class="post-list">
+      <li>
+        <a class="post-title" href="./RMO-2000.html">Russian Mathematical Olympiad 2000</a>
+        <div class="meta">A parity problem on a 200×200 board.</div>
+        <div class="lang-links">
+          <a href="./RMO-2000.html">English</a> ·
+          <a href="./RMO-2000-Chinese.html">中文</a>
+        </div>
+      </li>
+    </ul>
+
+    <footer>
+      Back to <a href="../index.html">Zhao Yajie's homepage</a>.
+    </footer>
+  </main>
+</body>
+</html>
