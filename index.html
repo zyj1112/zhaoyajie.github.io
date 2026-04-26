@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zhao Yajie</title>
+  <meta name="description" content="Personal academic homepage of Zhao Yajie.">
+  <style>
+    :root {
+      --text: #222222;
+      --muted: #666666;
+      --line: #dddddd;
+      --link: #1f5f9f;
+      --link-hover: #0f3f70;
+      --bg: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", "Noto Serif", serif;
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 36px 24px 72px;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(31, 95, 159, 0.28);
+    }
+
+    a:hover {
+      color: var(--link-hover);
+      border-bottom-color: var(--link-hover);
+    }
+
+    header {
+      margin-bottom: 28px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      margin-bottom: 24px;
+      color: var(--muted);
+      font-size: 15px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    }
+
+    nav a {
+      border-bottom: none;
+    }
+
+    h1 {
+      margin: 0 0 4px;
+      font-size: 38px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      font-size: 16px;
+    }
+
+    .intro {
+      max-width: 760px;
+      margin: 0 0 16px;
+    }
+
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      font-size: 15px;
+    }
+
+    section {
+      border-top: 1px solid var(--line);
+      margin-top: 30px;
+      padding-top: 22px;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      font-size: 19px;
+      font-weight: 650;
+      letter-spacing: -0.01em;
+    }
+
+    ul, ol {
+      padding-left: 22px;
+      margin-top: 8px;
+      margin-bottom: 0;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    .date {
+      display: inline-block;
+      min-width: 120px;
+      color: var(--muted);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      font-size: 15px;
+    }
+
+    .paper-title {
+      font-weight: 600;
+    }
+
+    .paper-meta {
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 15px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      margin-top: 36px;
+      padding-top: 18px;
+      color: var(--muted);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      font-size: 14px;
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        padding: 26px 18px 56px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      .date {
+        display: block;
+        min-width: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <nav aria-label="Main navigation">
+        <a href="#research">Research</a>
+        <a href="#education">Education</a>
+        <a href="#publications">Publications</a>
+        <a href="#notes">Notes</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <h1>Zhao Yajie</h1>
+      <p class="subtitle">Master's Student · University of Electronic Science and Technology of China</p>
+
+      <p class="intro">
+        I am interested in theoretical computer science, with a focus on algorithms,
+        combinatorial optimization, graph cuts, and matroid theory. I am also interested
+        in coding methods for DNA data storage.
+      </p>
+
+      <div class="quick-links">
+        <a href="mailto:yajiezhao8@gmail.com">Email</a>
+        <a href="https://github.com/zyj1112">GitHub</a>
+        <a href="#publications">Publications</a>
+      </div>
+    </header>
+
+    <section id="research">
+      <h2>Research Interests</h2>
+      <ul>
+        <li>Algorithms and combinatorial optimization</li>
+        <li>Graph cuts, connectivity, and near-minimum cuts</li>
+        <li>Matroid theory and sparsity matroids</li>
+        <li>Coding theory and DNA data storage</li>
+      </ul>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <ul>
+        <li><span class="date">2024–present</span> M.Sc., University of Electronic Science and Technology of China</li>
+        <li><span class="date">2020–2024</span> B.Sc., University of Electronic Science and Technology of China</li>
+      </ul>
+      <p class="note">Please adjust the years if they are not exact.</p>
+    </section>
+
+    <section id="publications">
+      <h2>Publications and Preprints</h2>
+      <ol>
+        <li>
+          <span class="paper-title">Title of your paper.</span><br>
+          <span class="paper-meta">Zhao Yajie and Coauthor. Conference/Journal/Manuscript, Year.</span><br>
+          <a href="#">PDF</a> · <a href="#">arXiv</a> · <a href="#">Code</a>
+        </li>
+        <li>
+          <span class="paper-title">Another title.</span><br>
+          <span class="paper-meta">Zhao Yajie and Coauthor. Conference/Journal/Manuscript, Year.</span><br>
+          <a href="#">PDF</a> · <a href="#">arXiv</a>
+        </li>
+      </ol>
+      <p class="note">Replace the placeholder items with your real papers. Delete this section if you do not want placeholders online.</p>
+    </section>
+
+    <section id="notes">
+      <h2>Notes</h2>
+      <ul>
+        <li><a href="./notes/note1">First Note</a></li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        Email: <a href="mailto:yajiezhao8@gmail.com">yajiezhao8@gmail.com</a><br>
+        GitHub: <a href="https://github.com/zyj1112">github.com/zyj1112</a>
+      </p>
+    </section>
+
+    <footer>
+      Last updated: April 2026.
+    </footer>
+  </main>
+</body>
+</html>
