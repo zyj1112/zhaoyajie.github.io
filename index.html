@@ -132,6 +132,28 @@
       font-size: 16px;
     }
 
+    .ai4math-entry {
+      margin-top: 16px;
+      padding: 16px 18px;
+      border-left: 3px solid var(--link);
+      background: #f7f9fb;
+    }
+
+    .ai4math-entry h3 {
+      margin: 0 0 8px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.4;
+    }
+
+    .ai4math-entry p {
+      margin: 0 0 10px;
+    }
+
+    .ai4math-entry p:last-child {
+      margin-bottom: 0;
+    }
+
     .note {
       color: var(--muted);
       font-size: 15px;
@@ -162,6 +184,14 @@
       }
     }
   </style>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']]
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
   <main class="page">
@@ -170,6 +200,7 @@
         <a href="#research">Research</a>
         <a href="#education">Education</a>
         <a href="#publications">Publications</a>
+        <a href="#ai4math">AI4Math</a>
         <a href="#notes">Notes</a>
         <a href="./blog/">Blog</a>
         <a href="#contact">Contact</a>
@@ -229,6 +260,25 @@
           <a href="https://arxiv.org/abs/2608.16298">arXiv</a>
         </li>
       </ol>
+    </section>
+
+    <section id="ai4math">
+      <h2>AI4Math Notes</h2>
+      <p>
+        This section collects mathematical problems that I have solved with the assistance
+        of AI, from counterexample search and proof development to detailed verification.
+      </p>
+      <article class="ai4math-entry">
+        <h3>A Complete Disproof of the Circuit Odd-Cover Conjecture (Conjecture 5.2)</h3>
+        <p>
+          The circuit odd-cover conjecture asks whether every Eulerian simple binary
+          matroid \(M\) satisfies \(c_2(M)\leq a(M)\)—equivalently, whether \(M\) can be
+          odd-covered by no more ambient circuits than its arboricity. This note constructs
+          a rank-8, 24-element example with \(a(M)=3\) and \(c_2(M)=4\), giving an explicit
+          counterexample.
+        </p>
+        <p><a href="./ai4math/circuit-odd-cover-counterexample.html">Read the full note →</a></p>
+      </article>
     </section>
 
     <section id="competitions">

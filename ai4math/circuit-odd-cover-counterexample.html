@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A Complete Disproof of the Circuit Odd-Cover Conjecture | Yajie Zhao</title>
+  <meta name="description" content="An explicit counterexample to the circuit odd-cover conjecture, showing c₂(M) = 4 > 3 = a(M).">
+  <style>
+    :root {
+      --text: #222222;
+      --muted: #666666;
+      --line: #dddddd;
+      --link: #1f5f9f;
+      --link-hover: #0f3f70;
+      --bg: #ffffff;
+      --panel: #f7f9fb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", "Noto Serif", serif;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 34px 24px 72px;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(31, 95, 159, 0.28);
+    }
+
+    a:hover {
+      color: var(--link-hover);
+      border-bottom-color: var(--link-hover);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      margin-bottom: 30px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      font-size: 15px;
+    }
+
+    nav a {
+      border-bottom: none;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--link);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 650;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 780px;
+      margin: 0;
+      font-size: 38px;
+      font-weight: 500;
+      letter-spacing: -0.025em;
+      line-height: 1.22;
+    }
+
+    .byline {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      font-size: 15px;
+    }
+
+    .summary {
+      margin: 30px 0 34px;
+      padding: 18px 20px;
+      border-left: 3px solid var(--link);
+      background: var(--panel);
+    }
+
+    .summary strong {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    }
+
+    .summary p {
+      margin: 0;
+    }
+
+    .summary p + p {
+      margin-top: 10px;
+    }
+
+    .contents {
+      margin: 0 0 34px;
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+    }
+
+    .contents h2 {
+      margin-top: 0;
+      font-size: 17px;
+    }
+
+    .contents ol {
+      columns: 2;
+      column-gap: 36px;
+      margin-bottom: 0;
+    }
+
+    main section {
+      margin-top: 38px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    h2, h3 {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      letter-spacing: -0.01em;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 23px;
+      font-weight: 650;
+    }
+
+    h3 {
+      margin: 28px 0 10px;
+      font-size: 18px;
+      font-weight: 650;
+    }
+
+    p {
+      margin: 0 0 16px;
+    }
+
+    mjx-container[display="true"] {
+      max-width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 4px 0;
+    }
+
+    footer {
+      margin-top: 44px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      font-size: 14px;
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding: 26px 18px 56px;
+      }
+
+      h1 {
+        font-size: 31px;
+      }
+
+      .contents ol {
+        columns: 1;
+      }
+
+      .summary,
+      .contents {
+        padding: 15px 16px;
+      }
+    }
+  </style>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      },
+      chtml: {
+        scale: 0.98
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <div class="page">
+    <nav aria-label="Note navigation">
+      <a href="../">← Home</a>
+      <a href="../#ai4math">AI4Math Notes</a>
+    </nav>
+
+    <header>
+      <p class="eyebrow">AI4Math Note</p>
+      <h1>A Complete Disproof of the Circuit Odd-Cover Conjecture (Conjecture 5.2)</h1>
+      <p class="byline">Yajie Zhao · September 2026 · AI-assisted mathematical problem solving</p>
+    </header>
+
+    <aside class="summary" aria-label="Problem summary">
+      <p><strong>The problem.</strong> Does every Eulerian simple binary matroid \(M\)
+        satisfy \(c_2(M)\leq a(M)\)? Equivalently, can \(M\) always be odd-covered by
+        no more ambient circuits than its arboricity?</p>
+      <p><strong>The answer.</strong> No. The construction below gives a rank-8,
+        24-element simple binary matroid for which
+        \(\boxed{c_2(M)=4>3=a(M)}\).</p>
+    </aside>
+
+    <nav class="contents" aria-label="Table of contents">
+      <div>
+        <h2>Contents</h2>
+        <ol>
+          <li><a href="#setup">Definitions and setup</a></li>
+          <li><a href="#construction">Construction</a></li>
+          <li><a href="#arboricity">Arboricity</a></li>
+          <li><a href="#lower-bound">No three-circuit odd-cover</a></li>
+          <li><a href="#upper-bound">A four-circuit odd-cover</a></li>
+        </ol>
+      </div>
+    </nav>
+
+    <main>
+      <section id="setup">
+        <h2>Definitions and setup</h2>
+        <p>
+          All vector spaces and all vector sums below are over \(\mathbb F _2\). A set
+          of vectors is a <strong>circuit</strong> if it is a nonempty zero-sum set with no
+          nonempty proper zero-sum subset. For sets, \(\triangle\) denotes symmetric
+          difference.
+        </p>
+        <p>
+          For \(M\subseteq V\setminus\{0\}\), a <strong>circuit odd-cover</strong> is a
+          finite list of sets \(C_i\subseteq V\setminus\{0\}\), each an ambient circuit
+          (a circuit of the complete vector matroid on \(V\setminus\{0\}\)), with
+          \(C_1\triangle\cdots\triangle C_t=M\). Thus points of \(M\) occur an odd number
+          of times and points outside \(M\) an even number of times.
+        </p>
+        <p>
+          We write \(c_2(M)\) for the minimum length of such a list, and \(a(M)\) for
+          the minimum number of linearly independent sets whose disjoint union is \(M\)
+          (equivalently, whose union is \(M\), since overlaps may be deleted). For a set
+          \(X\) of vectors, \(r(X)\) denotes the dimension of its linear span.
+        </p>
+        <p>The example below satisfies</p>
+        \[
+          a(M)=3\qquad\text{and}\qquad c_2(M)=4,
+        \]
+        <p>so it disproves the proposed inequality \(c_2(M)\leq a(M)\).</p>
+      </section>
+
+      <section id="construction">
+        <h2>Construction</h2>
+        <p>
+          Let \(U=\mathbb F _2^4\), and fix a basis which we label by \(1,2,4,8\).
+          Explicitly, the integer
+          \(b_0+2b_1+4b_2+8b_3\) denotes
+          \(b_0\cdot1+b_1\cdot2+b_2\cdot4+b_3\cdot8\), with
+          \(b_j\in\mathbb F _2\). Thus vector addition is bitwise XOR. Put
+        </p>
+        \[
+          H=\langle 1,2\rangle=\{0,1,2,3\},
+          \qquad A=U\setminus H=\{4,5,\ldots,15\}.
+        \]
+        <p>Let</p>
+        \[
+          V=U\oplus U,
+          \qquad L=U\oplus\{0\},
+          \qquad R=\{0\}\oplus U,
+        \]
+        <p>and define</p>
+        \[
+          M=\{(a,0):a\in A\}\mathbin{\dot\cup}
+          \{(0,a):a\in A\}\subseteq V\setminus\{(0,0)\}.
+        \]
+        <p>
+          The three cosets \(4+H,8+H,12+H\) partition \(A\), and the sum of every
+          coset of the four-element subspace \(H\) is zero. Hence
+        </p>
+        \[
+          \sum_{a\in A}a=0,
+          \qquad \sum_{m\in M}m=(0,0).
+        \]
+        <p>
+          Thus \(M\) is Eulerian. Also \(|M|=24\), and \(M\) has rank eight because
+          each of the two summands contains a basis of \(U\). The two displayed parts
+          are disjoint and contain no zero vector, so this is a simple binary matroid.
+          In particular, \(M\) spans the chosen ambient space \(V\), so here
+          \(n=r(M)=8\).
+        </p>
+      </section>
+
+      <section id="arboricity">
+        <h2>Arboricity</h2>
+        <p>Partition \(A\) into</p>
+        \[
+          \begin{aligned}
+            Q_1&=\{4,5,6,8\},\\
+            Q_2&=\{7,9,10,12\},\\
+            Q_3&=\{11,13,14,15\}.
+          \end{aligned}
+        \]
+        <p>
+          Each \(Q_i\) is a basis of \(U\). Writing the vectors as columns in the
+          coordinate order \((1,2,4,8)\), the three matrices are
+        </p>
+        \[
+          \begin{pmatrix}
+            0&1&0&0\\
+            0&0&1&0\\
+            1&1&1&0\\
+            0&0&0&1
+          \end{pmatrix},\quad
+          \begin{pmatrix}
+            1&1&0&0\\
+            1&0&1&0\\
+            1&0&0&1\\
+            0&1&1&1
+          \end{pmatrix},\quad
+          \begin{pmatrix}
+            1&1&0&1\\
+            1&0&1&1\\
+            0&1&1&1\\
+            1&1&1&1
+          \end{pmatrix}.
+        \]
+        <p>
+          Each has determinant \(1\) over \(\mathbb F _2\) (equivalently, row
+          reduction gives rank \(4\)). Therefore
+        </p>
+        \[
+          K_i=\{(x,0):x\in Q_i\}\cup\{(0,x):x\in Q_i\}
+          \qquad (i=1,2,3)
+        \]
+        <p>
+          are independent sets in \(V\), and \(K_1,K_2,K_3\) partition \(M\). Hence
+          \(a(M)\leq 3\).
+        </p>
+        <p>
+          Since \(r(M)=8\) and \(|M|=24\), two independent sets can contain at most
+          \(16\) elements. Consequently \(a(M)\geq\lceil24/8\rceil=3\), and so
+        </p>
+        \[
+          a(M)=3.
+        \]
+      </section>
+
+      <section id="lower-bound">
+        <h2>No odd-cover with at most three circuits</h2>
+        <p>
+          Every circuit in the complete binary matroid on \(V\setminus\{0\}\) has at
+          most \(\dim V+1=9\) elements: deleting any element of a circuit leaves an
+          independent set, whose size is at most eight.
+        </p>
+        <p>
+          An odd-cover with one or two circuits is impossible, since its total number
+          of incidences is at most \(18\lt24\), whereas every point of \(M\) must occur
+          at least once. Suppose, for a contradiction, that
+        </p>
+        \[
+          C_1\triangle C_2\triangle C_3=M
+        \]
+        <p>
+          for three ambient circuits. Let \(O\) be the set of points outside \(M\)
+          which occur in these circuits. Every point of \(M\) has odd (hence at least
+          one) multiplicity, while every point outside \(M\) has even multiplicity and,
+          if it occurs, at least two. Thus
+        </p>
+        \[
+          24+2|O|\leq |C_1|+|C_2|+|C_3|\leq27,
+        \]
+        <p>so \(|O|\leq1\).</p>
+
+        <h3>Case 1: \(O=\varnothing\)</h3>
+        <p>
+          Then every \(C_i\) is contained in \(M\). If a circuit \(C\subseteq M\)
+          met both \(L\) and \(R\), then the direct-sum decomposition gives
+        </p>
+        \[
+          \sum(C\cap L)=0,\qquad \sum(C\cap R)=0.
+        \]
+        <p>
+          Both intersections would be nonempty proper zero-sum subsets of \(C\),
+          contradicting minimality. Hence every \(C_i\) lies wholly in one of the two
+          rank-four summands, and therefore \(|C_i|\leq5\). Three such circuits have
+          at most \(15\) incidences, so they cannot cover the 24 points of \(M\) even
+          once. This is a contradiction.
+        </p>
+
+        <h3>Case 2: \(O=\{z\}\)</h3>
+        <p>
+          The outside point \(z\) occurs in exactly two of the three circuits. The
+          remaining circuit, say \(E\), contains no outside point, so \(E\subseteq M\).
+          By the argument in Case 1, \(E\) lies in one summand and \(|E|\leq5\). Each
+          of the two circuits containing \(z\) has at most eight points of \(M\), since
+          its total size is at most nine. Hence the three circuits have at most
+        </p>
+        \[
+          8+8+5=21
+        \]
+        <p>
+          incidences on \(M\), again fewer than the required 24. This is impossible.
+        </p>
+        <p>Both cases are impossible. Therefore</p>
+        \[
+          c_2(M)\geq4.
+        \]
+      </section>
+
+      <section id="upper-bound">
+        <h2>A four-circuit odd-cover</h2>
+        <p>The sums of the three bases above are</p>
+        \[
+          t_1=\sum Q_1=15,\qquad
+          t_2=\sum Q_2=8,\qquad
+          t_3=\sum Q_3=7,
+          \qquad t_1+t_2+t_3=0.
+        \]
+        <p>For \(i=1,2,3\), set</p>
+        \[
+          J_i=\{(x,0):x\in Q_i\}\cup\{(0,x):x\in Q_i\},
+          \qquad s_i=(t_i,t_i).
+        \]
+        <p>
+          Each \(J_i\) is a basis of \(V\), and \(s_i=\sum_{x\in J_i}x\). If \(B\)
+          is independent and \(s=\sum B\) is nonzero and not already in \(B\), then
+          \(B\cup\{s\}\) is a circuit: any zero-sum subset must contain \(s\), and
+          independence forces it to contain all of \(B\). In our construction,
+          \(s_i=(t_i,t_i)\notin J_i\), because every element of \(J_i\) has one
+          coordinate equal to zero while \(t_i\neq0\); in particular \(s_i\notin M\).
+          Consequently
+        </p>
+        \[
+          C_i=J_i\cup\{s_i\}\qquad(i=1,2,3)
+        \]
+        <p>are 9-element circuits. Moreover,</p>
+        \[
+          C_4=\{s_1,s_2,s_3\}
+        \]
+        <p>
+          is a triangle, because the three nonzero vectors \(s_1,s_2,s_3\) are
+          distinct and sum to zero.
+        </p>
+        <p>
+          The sets \(J_1,J_2,J_3\) partition \(M\), and each \(s_i\) occurs once in
+          \(C_i\) and once in \(C_4\). Therefore
+        </p>
+        \[
+          C_1\triangle C_2\triangle C_3\triangle C_4=M.
+        \]
+        <p>Thus \(c_2(M)\leq4\). Together with the lower bound,</p>
+        \[
+          \boxed{c_2(M)=4>3=a(M)}.
+        \]
+        <p>
+          For reference, under the eight-bit encoding
+          \((u,v)\leftrightarrow u+16v\), the four circuits are
+        </p>
+        \[
+          \begin{aligned}
+            C_1&=\{4,5,6,8,64,80,96,128,255\},\\
+            C_2&=\{7,9,10,12,112,144,160,192,136\},\\
+            C_3&=\{11,13,14,15,176,208,224,240,119\},\\
+            C_4&=\{255,136,119\}.
+          \end{aligned}
+        \]
+      </section>
+    </main>
+
+    <footer>
+      AI4Math note · Last updated September 2026 ·
+      <a href="../">Return to Yajie Zhao's homepage</a>
+    </footer>
+  </div>
+</body>
+</html>
